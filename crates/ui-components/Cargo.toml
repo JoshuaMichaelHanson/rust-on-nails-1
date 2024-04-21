@@ -1,12 +1,11 @@
 [package]
-name = "web-ui"
+name = "ui-components"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-axum = { version = "0.7" }
 db = { version = "0.1.0", path = "../db" }
-tokio = { version = "1", features = ["full"] }
-ui-components = { version = "0.1.0", path = "../ui-components" }
+dioxus = "0.4.3"
+dioxus-ssr = "0.4.3"
