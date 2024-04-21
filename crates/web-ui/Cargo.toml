@@ -1,8 +1,11 @@
 [package]
-name = "axum-server"
+name = "web-ui"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+axum = { version = "0.7" }
+db = { version = "0.1.0", path = "../db" }
+tokio = { version = "1", features = ["full"] }

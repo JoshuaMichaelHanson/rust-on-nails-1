@@ -1,4 +1,6 @@
 FROM purtontech/rust-on-nails-devcontainer:1.2.1 AS development
+# this pulls down the config and installs the dependencies
+# https://hub.docker.com/layers/purtontech/rust-on-nails-devcontainer/1.2.1/images/sha256-595ad34c9bfb3971daa617304dd6880de3603a60284406055cb22e5e602369d8?context=explore
 
 COPY ps1.bash .
 RUN cat ps1.bash >> ~/.bashrc && sudo rm ps1.bash
