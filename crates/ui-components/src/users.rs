@@ -34,9 +34,20 @@ pub fn users(users: Vec<User>) -> String {
                                 }
                             }
                         ))
-                    }
-                }
-            }
+                    } // end t-body
+                    
+                } // end table
+                // 👇 this is our new form
+                form {
+                    action: "/sign_up",
+                    method: "POST",
+                    label { r#for: "user_email", "Email:" }
+                    input { id: "user_email", name: "email", r#type: "email", required: "true" }
+                    button { "Submit" }
+                    // Note: for and type are Rust keywords. We must prefix them with r# so Rust knows that we 
+                    // want the raw string literal of "for" and "type".
+                } // end form
+            } // end layout
         })
     }
 
