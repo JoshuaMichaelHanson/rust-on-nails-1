@@ -1,0 +1,16 @@
+[package]
+name = "statics"
+version = "0.1.0"
+edition = "2021"
+
+build = "src/build.rs"
+
+[build-dependencies]
+ructe = { version = "0.17.0", features = ["sass", "mime03"] }
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# Used by ructe for image mime type detection
+mime = "0.3.0"
+ructe = "0.17.0"

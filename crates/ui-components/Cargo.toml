@@ -9,3 +9,4 @@ edition = "2021"
 db = { version = "0.1.0", path = "../db" }
 dioxus = "0.4.3"
 dioxus-ssr = "0.4.3"
+statics = { version = "0.1.0", path = "../statics" }
