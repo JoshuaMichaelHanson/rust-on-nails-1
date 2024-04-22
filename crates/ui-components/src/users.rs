@@ -15,6 +15,7 @@ pub fn users(users: Vec<User>) -> String {
             Layout {    // <-- Use our layout
                 title: "Users Table",
                 h1 {"Heading One"}
+                hello-world {}
                 table {
                     thead {
                         tr {

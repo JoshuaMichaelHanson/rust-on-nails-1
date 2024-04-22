@@ -18,14 +18,12 @@ use axum::{
     Form,
     Router,
 };
-use axum::body::{self, Body};
+use axum::body::Body;
 use serde::Deserialize;
 use std::net::SocketAddr;
-use tokio::io::Empty;
 // 👇 new import
 use validator::Validate;
-use statics::templates::statics::*;
-use statics::templates::statics::{StaticFile, STATICS};
+use statics::templates::statics::StaticFile;
 
 #[tokio::main]
 async fn main() {
