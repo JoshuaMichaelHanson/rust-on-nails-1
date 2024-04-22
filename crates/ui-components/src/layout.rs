@@ -30,6 +30,9 @@ pub fn Layout<'a>(cx: Scope<'a, AppLayoutProps<'a>>) -> Element {
                 rel: "stylesheet",
                 href: "static/{statics::templates::statics::index_css.name}"
             }
+            script {
+                src: "static/{statics::templates::statics::index_js.name}"
+            }
         }
         body {
             &cx.props.children
