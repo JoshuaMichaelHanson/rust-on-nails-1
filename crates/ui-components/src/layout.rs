@@ -26,6 +26,10 @@ pub fn Layout<'a>(cx: Scope<'a, AppLayoutProps<'a>>) -> Element {
                 name: "viewport",
                 content: "width=device-width, initial-scale=1"
             }
+            link {
+                rel: "stylesheet",
+                href: "static/{statics::templates::statics::index_css.name}"
+            }
         }
         body {
             &cx.props.children

@@ -14,6 +14,7 @@ pub fn users(users: Vec<User>) -> String {
         cx.render(rsx! {
             Layout {    // <-- Use our layout
                 title: "Users Table",
+                h1 {"Heading One"}
                 table {
                     thead {
                         tr {

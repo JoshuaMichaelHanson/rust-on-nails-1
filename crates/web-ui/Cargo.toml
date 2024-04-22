@@ -9,6 +9,7 @@ edition = "2021"
 axum = { version = "0.7" }
 db = { version = "0.1.0", path = "../db" }
 serde = { version = "1.0", features = ["derive"] }
+statics = { version = "0.1.0", path = "../statics" }
 tokio = { version = "1", features = ["full"] }
 ui-components = { version = "0.1.0", path = "../ui-components" }
 validator = { version = "0.15", features = ["derive"] }
