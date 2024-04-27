@@ -25,6 +25,11 @@ use std::net::SocketAddr;
 use validator::Validate;
 use statics::templates::statics::StaticFile;
 
+use tower::{make::Shared, steer::Steer, BoxError, ServiceExt};
+use tonic::transport::Server;
+use grpc_api::api::api_server::UsersServer;
+use http::{header::CONTENT_TYPE, Request};
+
 #[tokio::main]
 async fn main() {
     let config = config::Config::new();
@@ -38,6 +43,24 @@ async fn main() {
         .route("/static/*path", get(static_path))
         .layer(Extension(config))
         .layer(Extension(pool.clone()));
+
+    // Handle gRPC API requests
+    let grpc = Server::builder()
+        .add_service(TraceServer::new(api::trace_grpc_service::TraceService {
+            pool,
+        }))
+        .into_service()
+        .map_response(|r| r.map(Body::from(r)))
+        .boxed_clone();
+
+    // Create a service that can respond to Web and gRPC
+    let http_grpc = Steer::new(vec![app, grpc], |req: &Request<Body>, _svcs: &[_]| {
+        if req.headers().get(CONTENT_TYPE).map(|v| v.as_bytes()) != Some(b"application/grpc") {
+            0
+        } else {
+            1
+        }
+    });
 
     // run it
     let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
